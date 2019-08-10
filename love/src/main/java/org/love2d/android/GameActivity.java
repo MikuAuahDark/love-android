@@ -101,14 +101,13 @@ public class GameActivity extends SDLActivity {
     protected void onNewIntent(Intent intent) {
         Log.d("GameActivity", "onNewIntent() with " + intent);
         handleIntent(intent);
-        resetNative();
-        startNative();
     }
 
     protected void handleIntent(Intent intent) {
         Uri game = intent.getData();
 
         if (game != null) {
+			/*
             String scheme = game.getScheme();
             String path = game.getPath();
             // If we have a game via the intent data we we try to figure out how we have to load it. We
@@ -163,6 +162,7 @@ public class GameActivity extends SDLActivity {
                 alert_dialog.setCancelable(false);
                 alert_dialog.create().show();
             }
+			*/
         } else {
             // No game specified via the intent data -> check whether we have a game.love in our assets.
             boolean game_love_in_assets = false;
@@ -201,6 +201,7 @@ public class GameActivity extends SDLActivity {
 
     protected void checkLovegameFolder() {
         // If no game.love was found fall back to the game in <external storage>/lovegame
+		/*
         Log.d("GameActivity", "fallback to lovegame folder");
         if (hasExternalStoragePermission()) {
             File ext = Environment.getExternalStorageDirectory();
@@ -209,7 +210,7 @@ public class GameActivity extends SDLActivity {
             }
         } else {
             Log.d("GameActivity", "Cannot load game from /sdcard/lovegame: permission not granted");
-        }
+        }*/
     }
 
     @Override
