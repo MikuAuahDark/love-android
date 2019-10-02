@@ -17,9 +17,12 @@ your choice.
 Quick Start:
 ------------
 
-Install the Android NDK and the Android SDK with SDK API 23, set the
-environment variables ```ANDROID_NDK```, ```ANDROID_SDK```and
-```ANDROID_HOME```, create a file ```local.properties``` with contents:
+Install the Android NDK and the Android SDK with SDK API 28, set the
+environment variables:
+
+* `ANDROID_HOME` to your Android SDK location.
+
+* `ANDROID_NDK_HOME` to your Android NDK location. NDK r16 or later; r19 also work.
 
     ndk.dir=/opt/android-ndk
     sdk.dir=/opt/android-sdk
@@ -27,7 +30,7 @@ environment variables ```ANDROID_NDK```, ```ANDROID_SDK```and
 (you may have to adjust the paths to the install directories of the Android
 SDK and Android NDK on your system) and run
 
-    ./gradlew build
+    ./gradlew assemble
 
 in the root folder of this project. This should give you a .apk file in the
 app/build/outputs/apk/ subdirectory that you can then install on your phone.
@@ -40,16 +43,25 @@ repository root.
 Bugs:
 -----
 
-Bugs and feature requests should be reported to the issue tracker at [https://bitbucket.org/MartinFelis/love-android-sdl2/issues?status=new&status=open](https://bitbucket.org/MartinFelis/love-android-sdl2/issues?status=new&status=open).
+Bugs and feature requests should be reported to the issue tracker at https://bitbucket.org/MartinFelis/love-android-sdl2/issues?status=new&status=open
 
 Changelog:
 ----------
 
+11.2:
+
+* Contains all relevant changes for desktop LÖVE 11.2.
+* Added support for ARM64 devices to comply with Play Store requirements.
+* Fixed `love.system.openURL` crashing in some cases.
+* Changed target SDK to 28 so it comply with Play Store requirements.
+
 0.10.2:
+
 * Contains all relevant changes for desktop LÖVE 0.10.2.
 * Upgrade of SDL2 to 2.0.5 (fixes an issue with the accelerometer)
 
 0.10.1:
+
 This release contains all bugfixes of the desktop 0.10.1 release. Android
 specific fixes are:
 * Added a new love.conf flag t.externalstorage, which determines whether files are saved in internal or external storage on Android devices.
@@ -59,10 +71,12 @@ specific fixes are:
 * New icons
 
 0.10.0:
+
 * first official release!
 * Disabled JIT by default as it can cause performance problems. To enable JIT call jit.on()
 
 0.10.0-alpha2:
+
 * Update to the next love API 0.10.0 (not yet officially released)
 * Added building of libtheora
 * Updated LuaJIT from 2.0.1 to 2.1
@@ -72,6 +86,7 @@ specific fixes are:
 * Updated SDL2 to a dev version of 2.0.4
 
 0.9.2a:
+
 * Added bugfix for ParticleSystem:clone
 
 0.9.2:
